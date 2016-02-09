@@ -2,7 +2,7 @@
 module Numeros  where
 
 	--Funcion max--
-	maxi::Double->Double->Double
+	maxi::Integer->Integer->Integer
 	maxi a b 
 		| b >= a = b
 		| otherwise = a
