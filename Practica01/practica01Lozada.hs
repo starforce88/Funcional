@@ -2,3 +2,5 @@
 module Practica01 where
 	import Numeros
 	import Listas
+	import ListasComprension
+	import FuncOrdSup

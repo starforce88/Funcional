@@ -1,6 +1,5 @@
 --Lozada Mendez Ivan--
 module Listas where
-
 	--Funcion atN--
 	atN::[a]->Int->a
 	atN [] _ = error "atN No existe la entrada en la lista"
@@ -23,8 +22,11 @@ module Listas where
 	--auxrec recorre la lista hasta el elemento n--
 	auxrec::Int->[Int]->[Int]
 	auxrec 0 _ = []
-	auxrec n (x:xs) 
+	auxrec n (x:xs)
+		| n > (length (x:xs)) = error "No existe la entrada en la lista"
 		| n == 1 = [x]
-		| otherwise = x: auxrec (n-1) xs
+		| otherwise = x:auxrec (n-1) xs
 
 	--parlista --
+
+	--module ListasComprension
