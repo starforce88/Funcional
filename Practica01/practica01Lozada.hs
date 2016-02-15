@@ -4,3 +4,4 @@ module Practica01 where
 	import Listas
 	import ListasComprension
 	import FuncOrdSup
+	import Conjuntos
