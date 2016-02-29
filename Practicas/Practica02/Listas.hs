@@ -37,5 +37,8 @@ module Listas where
 		| otherwise = elim n xs
 
 	funcion::Eq a => [a]->[a]
-	funcion [] = []
-	funcion (x:xs) = funcion (elim x xs)
+	funcion [x] = [x]
+	funcion (x:xs)
+		| (elim x xs) == [] = []
+		| (elim x xs) == xs = x:(funcion xs)
+		| otherwise = funcion (elim x xs)
