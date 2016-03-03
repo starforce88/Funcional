@@ -42,3 +42,8 @@ module Listas where
 		| (elim x xs) == [] = []
 		| (elim x xs) == xs = x:(funcion xs)
 		| otherwise = funcion (elim x xs)
+
+	--Ejercicio 6
+	agrupa::Eq a => [a]->[(Integer, a)]
+	agrupa [a] = [(1,a)]
+	--agrupa

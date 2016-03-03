@@ -23,9 +23,12 @@ module Digitos where
 		| n < 10 = 1
 		| otherwise = 1 + digitos (div n 10)
 
-	sumaflip::Integer->Integer
-	sumaflip n = n+(iflip n)
+	existeaux::Integer->[Integer]->Integer
+	existeaux n [] = 0
+	existeaux n (x:xs)
+		| (x + (iflip x)) == n = x
+		| (x + (iflip x)) < n = existeaux n xs
+		| (x + (iflip x)) > n = existeaux n xs
 
 	existe::Integer->Integer
-	existe n 
-		| n == sumaflip x = 2
+	existe n = existeaux n [1..n]
