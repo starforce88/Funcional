@@ -43,7 +43,27 @@ module Listas where
 		| (elim x xs) == xs = x:(funcion xs)
 		| otherwise = funcion (elim x xs)
 
+	--agrupaux::Eq a => a->[a]->
 	--Ejercicio 6
-	agrupa::Eq a => [a]->[(Integer, a)]
-	agrupa [a] = [(1,a)]
+	busca::Eq a => a->[a]->Bool
+	busca a [] = False
+	busca a (x:xs)
+		| a == x = True
+		| otherwise = busca a xs
+
+	agrupalis::Eq a => [a]->[[a]]->[[a]]
+	agrupalis [] xs = xs
+	agrupalis (x:xs) [] = agrupalis xs [[x]]
+	agrupalis (x:xs) (y:ys)
+		| busca x y == True = (agrupalis xs (([x]++y):ys))
+		| otherwise = [y]++(agrupalis (x:xs) ys)
+
+	sumagrup::Eq a => [[a]]->[(Int, a)]
+	sumagrup [] = []
+	sumagrup (x:xs) = ((length x), (head x)):(sumagrup xs)
+
+	--agrupalis::Eq a => [a]->[[a]]
+
+	agrupa::Eq a => [a]->[(Int, a)]
+	agrupa xs = sumagrup (agrupalis xs [])
 	--agrupa
